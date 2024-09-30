@@ -1,24 +1,14 @@
 package dat;
 
 import dat.config.ApplicationConfig;
-import dat.controllers.DogController;
-import dat.daos.DogMapDAO;
-import dat.dtos.DogDTO;
-import io.javalin.Javalin;
+import dat.config.HibernateConfig;
+import jakarta.persistence.EntityManagerFactory;
 
 public class Main {
-    private static final DogMapDAO DOG_MAP_DAO = new DogMapDAO();
-    private static final DogController dogController = new DogController(DOG_MAP_DAO);
+    private static final EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory("dog");
 
     public static void main(String[] args) {
-
         System.out.println("Hello dogs!");
-
-        DOG_MAP_DAO.add(new DogDTO("Bulder", "Golden", "Male", 2));
-        DOG_MAP_DAO.add(new DogDTO("Basse", "Doodle", "Female", 3));
-
-        var app = Javalin
-                .create(ApplicationConfig::configuration)
-                .start(7070);
+        ApplicationConfig.startServer(7070, emf);
     }
 }

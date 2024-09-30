@@ -1,4 +1,4 @@
-# Startcode for Java Deep Dive II week
+# Startcode for Java REST API Test Exercise
 
 Includes:
 
@@ -8,8 +8,12 @@ Includes:
 - Junit 5
 - Postgres drivers
 - Test containers
+- Controllers
+- Routes
+
+Note that the EntityManagerFactory is created in the Main class and injected into 
+the routes and controllers at startup.
 
 Is created for Java 17 corretto
 
-The Person entity is just for testing purposes and needs a database called "person" to work with JPA.
 
