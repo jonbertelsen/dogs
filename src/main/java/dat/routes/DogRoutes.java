@@ -1,15 +1,19 @@
 package dat.routes;
 
 import dat.controllers.DogController;
-import dat.daos.DogMapDAO;
+import dat.daos.DogJPADAO;
 import io.javalin.apibuilder.EndpointGroup;
+import jakarta.persistence.EntityManagerFactory;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class DogRoutes {
 
-    private final DogMapDAO dogMapDao = new DogMapDAO();
-    private final DogController dogController = new DogController(dogMapDao);
+    private final DogController dogController;
+
+    public DogRoutes(EntityManagerFactory emf) {
+        dogController = new DogController(new DogJPADAO(emf));
+    }
 
     public EndpointGroup getRoutes() {
         return () -> {

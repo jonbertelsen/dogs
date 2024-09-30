@@ -25,6 +25,7 @@ public class DogDTO {
         this.age = age;
     }
 
+
     public DogDTO(Dog dog) {
         this.id = dog.getId();
         this.name = dog.getName();
@@ -33,5 +34,24 @@ public class DogDTO {
         this.age = dog.getAge();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
+        DogDTO dogDTO = (DogDTO) o;
+        return getId() == dogDTO.getId() && getAge() == dogDTO.getAge() && getName().equals(dogDTO.getName()) && getBreed().equals(dogDTO.getBreed()) && getGender().equals(dogDTO.getGender());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getBreed().hashCode();
+        result = 31 * result + getGender().hashCode();
+        result = 31 * result + getAge();
+        return result;
+    }
 }
