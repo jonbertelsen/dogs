@@ -79,6 +79,23 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.5.0</version> <!-- Use the latest version available -->
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>5.5.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
         <!--        https://www.baeldung.com/hamcrest-core-matchers-->
         <dependency>
             <groupId>org.hamcrest</groupId>
