@@ -10,6 +10,7 @@ import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
@@ -34,7 +35,7 @@ class DogRestTest {
 
     @BeforeEach
     void setUp() {
-        testDogs = Populators.populate3Dogs(emf);
+        testDogs = new ArrayList<>(Populators.populate3Dogs(emf));
     }
 
     @AfterEach
