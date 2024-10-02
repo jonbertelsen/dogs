@@ -32,6 +32,8 @@ class DogRoutesTest {
     @BeforeAll
     void init() {
         app = ApplicationConfig.startServer(7070, emf);
+        HibernateConfig.setTest(true);
+
     }
 
     @BeforeEach
